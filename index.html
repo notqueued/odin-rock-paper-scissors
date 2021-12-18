@@ -4,20 +4,35 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
+        <title>Rock Paper Scissors</title>
         <script src="index.js" defer></script>
     </head>
     <body>
-        <div class="player">
-            <div><button onclick="playRound('Rock')" class="rock-btn selection-btn">Rock</button></div>
-            <div><button onclick="playRound('Paper')" class="paper-btn selection-btn">Paper</button></div>
-            <div><button onclick="playRound('Scissors')" class="scissors-btn selection-btn">Scissors</button></div>
-        </div>
-        <div class="game">
-            <div class="result"><p class="resultText"></p></div>
-            <div class="score"><p>Player</p>
-            <p class="scorePlayer">0</p>
-            <p>Computer</p>
-            <p class="scoreComputer">0</p></div>
+        <div class="container">
+            <div class="header">
+                <h1>ROCK&#9679;PAPER&#9679;SCISSORS</h1>
+            </div>
+            <div class="player">
+                <div><button onclick="playRound('Rock')" class="rock-btn selection-btn"><img src="./images/rock.png" alt="Rock"></button></div>
+                <div><button onclick="playRound('Paper')" class="paper-btn selection-btn"><img src="./images/paper.png" alt="Paper"></button></div>
+                <div><button onclick="playRound('Scissors')" class="scissors-btn selection-btn"><img src="./images/scissors.png" alt="Scissors"></button></div>
+            </div>
+            <div class="game">
+                <div class="result">
+                    <div class="resultRound">
+                        <p class="resultText"></p>
+                    </div>
+                </div>
+                <div class="score">
+                    <div>
+                        <p>Player</p>
+                        <p class="scorePlayer">0</p>
+                    </div>
+                    <div>
+                        <p>Computer</p>
+                        <p class="scoreComputer">0</p></div>
+                </div>
+            </div>
         </div>
     </body>
 </html>

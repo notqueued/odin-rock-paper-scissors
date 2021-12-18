@@ -28,29 +28,25 @@ function playRound(playerSelection) {
     let scoreComputer = updateComputer();
     let computerSelection = computerPlay();
     if (playerSelection === "Rock" && computerSelection === "Paper") {
-        console.log("You lost! Paper beats Rock");
-        document.getElementsByClassName("resultText")[0].textContent = "You lost! Paper beats Rock";
+        document.getElementsByClassName("resultText")[0].textContent = "You lost";
         scoreBoard(scoreComputer,"lost");
     }
     else if (playerSelection === "Paper" && computerSelection === "Scissors") {
-        console.log("You lost! Scissors beats Paper");
-        document.getElementsByClassName("resultText")[0].textContent = "You lost! Scissors beats Paper";
+        document.getElementsByClassName("resultText")[0].textContent = "You lost";
         scoreBoard(scoreComputer,"lost");
     }
     else if (playerSelection === "Scissors" && computerSelection === "Rock") {
-        console.log("You lost! Rock beats Scissors");
-        document.getElementsByClassName("resultText")[0].textContent = "You lost! Rock beats Scissors";
+        document.getElementsByClassName("resultText")[0].textContent = "You lost";
         scoreBoard(scoreComputer,"lost");
     }
     else if (playerSelection === computerSelection) {
-        console.log("It's a draw!");
-        document.getElementsByClassName("resultText")[0].textContent = "It's a draw!";
+        document.getElementsByClassName("resultText")[0].textContent = "Draw";
     } else {
-        console.log("You won! " + playerSelection + " beats " + computerSelection);
-        document.getElementsByClassName("resultText")[0].textContent = "You won! " + playerSelection + " beats " + computerSelection;
+        document.getElementsByClassName("resultText")[0].textContent = "You won";
         scoreBoard(scorePlayer,"won");
     }
 
+    imageResultRound(playerSelection, computerSelection);
     scorePlayer = updatePlayer();
     scoreComputer = updateComputer();
     console.log(scorePlayer);
@@ -67,6 +63,33 @@ function updatePlayer() {
 
 function updateComputer() {
     return parseInt(document.getElementsByClassName("scoreComputer")[0].textContent);
+}
+
+function imageResultRound(playerSelection,computerSelection) {
+    if (document.querySelector('.holderResultPlayer')){
+        document.querySelector('.holderResultPlayer').remove();
+    }
+    if (document.querySelector('.holderResultComputer')) {
+        document.querySelector('.holderResultComputer').remove();
+    }
+    const pText = document.querySelector('.resultText');
+    const div = pText.parentNode;
+    const resultPlayer = document.createElement('div');
+    resultPlayer.classList.add('holderResultPlayer');
+    const imageResultPlayer = document.createElement('img');
+    imageResultPlayer.classList.add('imageResultPlayer');
+    const srcPlayer = "./images/" + playerSelection.toLowerCase() + ".png";
+    imageResultPlayer.setAttribute("src", srcPlayer);
+    resultPlayer.appendChild(imageResultPlayer);
+    const resultComputer = document.createElement('div');
+    resultComputer.classList.add('holderResultComputer');
+    const imageResultComputer = document.createElement('img');
+    imageResultComputer.classList.add('imageResultComputer');
+    const srcComputer = "./images/" + computerSelection.toLowerCase() + ".png";
+    imageResultComputer.setAttribute("src", srcComputer);
+    resultComputer.appendChild(imageResultComputer);
+    div.insertBefore(resultPlayer, pText);
+    div.appendChild(resultComputer);
 }
 
 function endOfGame(scorePlayer, scoreComputer){
@@ -96,4 +119,6 @@ function newGame() {
     document.querySelector('.scoreComputer').textContent = "0";
     document.querySelector('.resultText').textContent = "";
     document.querySelector('.playAgain').remove();
+    document.querySelector('.holderResultPlayer').remove();
+    document.querySelector('.holderResultComputer').remove();
 }

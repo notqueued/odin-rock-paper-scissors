@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #ecdce9;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.25em;
+    font-size: 0.8em;
+}
+
+.player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+img {
+    width: 5rem;
+    height: 5rem;
+}
+
+.game {
+    padding: 2rem 0.5rem;
+    font-size: 1.25rem;
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 0;
+    gap: 0.8rem;
+}
+
+.resultRound {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.resultText {
+    width: 5rem;
+    text-align: center;
+}
+
+.score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+.score div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.selection-btn {
+    background-color: #e9c6c3;
+}
+
+.imageResultComputer, .imageResultPlayer {
+    width: 4rem;
+    height: 4rem;
+}
+
+.playAgain {
+    font-size: 1.25rem;
+    padding: 0.25rem 1rem;
+    background-color: #e9c6c3;
+    border-radius: 0.5rem;
+    border-color: transparent;
+    text-align: center;
+}
+
+.selection-btn:hover,
+.selection-btn.focus,
+.playAgain:hover,
+.playAgain:focus {
+    box-shadow: 0 4px 15px 0 rgba(51, 84, 73, 0.75);
+    transition: 0.25s;
+    opacity: 0.8;
+}
+
+/*
+#335449
+#12171a
+#ecdce9
+#c1a7b3
+#a55265
+*/
